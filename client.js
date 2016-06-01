@@ -1,7 +1,7 @@
 /*
 
 
-Nextion.js for Raspberry Pi
+Nextion.js for Raspberry Pi / Node.js
 
 Grégory G.
 
