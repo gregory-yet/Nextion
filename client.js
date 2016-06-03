@@ -46,6 +46,10 @@ var write = {
 		var val = value ? "1":"0";
 		writeUart('vis '+cmp+','+val);
 	},
+	setColor: function(cmp, bco){
+		writeUart(cmp + ".bco=" + bco);
+		writeUart("ref " + cmp);
+	},
 	getPage: function(){
 		writeUart('sendme');
 	}
