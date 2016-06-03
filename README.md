@@ -1,5 +1,5 @@
 # Nextion for Raspberry
-
+# In development, README in english is coming
 ## Node.js
 
 Pour utiliser l'écran Nextion avec Node.js vous avez besoin du module SerialPort, disponible à cette [adresse](https://www.npmjs.com/package/serialport)
