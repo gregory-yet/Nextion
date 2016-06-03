@@ -3,7 +3,7 @@
 ## Node.js
 
 Pour utiliser l'écran Nextion avec Node.js vous avez besoin du module SerialPort, disponible à cette [adresse](https://www.npmjs.com/package/serialport)
-Dans le code [Nextion.js](nextion.js) il y a la fonction ```write``` qui permet d'envoyer / demander des données au Nextion. Parmis les fonctions disponibles on retrouvre :
+Dans le code [Nextion.js](client.js) il y a la fonction ```write``` qui permet d'envoyer / demander des données au Nextion. Parmis les fonctions disponibles on retrouvre :
 ```javascript
 var write = {
 	uart: function(cmd){ // qui permet d'écrire n'importe quelle commande pas disponible dans les fonctions
