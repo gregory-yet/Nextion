@@ -1,36 +1,46 @@
 # Nextion for Raspberry
-# In development, README in english is coming
+Little program that let you use a Nextion screen with Node.js or Python.
 ## Node.js
+### Dépendance
+**[Serialport](https://www.npmjs.com/package/serialport)**
 
-Pour utiliser l'écran Nextion avec Node.js vous avez besoin du module SerialPort, disponible à cette [adresse](https://www.npmjs.com/package/serialport)
-Dans le code [Nextion.js](client.js) il y a la fonction ```write``` qui permet d'envoyer / demander des données au Nextion. Parmis les fonctions disponibles on retrouvre :
+### Utilisation
+#### write.uart
 ```javascript
-var write = {
-	uart: function(cmd){ // qui permet d'écrire n'importe quelle commande pas disponible dans les fonctions
-		writeUart(cmd);
-	},
-	setPage: function(num){ // permet de définir la page actuelle write.setPage(0);
-		writeUart('page '+num);
-	},
-	setText: function(cmp, txt){ // permet de définir le texte d'un composant write.setText("t0", "salut");
-		writeUart(cmp+'.txt="'+txt+'"');
-	},
-	setVis: function(cmp, value){ // permet de définir la visibilité d'un composant write.setVis("t0", true);
-		var val = value ? "1":"0";
-		writeUart('vis '+cmp+','+val);
-	},
-	setColor: function(cmp, bco){ // permet de définir la couleur d'un composant write.setColor("t0", "00000");
-		writeUart(cmp + ".bco=" + bco);
-		writeUart("ref " + cmp);
-	},
-	getPage: function(){ // permet de recevoir la page actuelle write.getPage(); le nextion retournera 0X66 0X0x 0XFF 0XFF 0XFF, l'hexa sera reçu dans la fonction readUart();
-		writeUart('sendme');
-	}
-};
+write.uart('page 0');
 ```
-## Python
+#### write.setPage
+Changer la page actuelle
+```javascript
+write.setPage(0);
+```
+#### write.setText
+Changer le texte d'un composant
+```javascript
+write.setText('t0', "Hello world!");
+```
+#### write.setVis
+Rendre un composant invisible
+```javascript
+write.setVis('t0', false);
+```
+#### write.setColor
+Changer la couleur background d'un composant
+```javascript
+write.setColor('t0', '01234');
+```
+#### write.getPage
+L'écran renverra le numéro de page quand l'utilisateur change de page
+```javascript
+write.getPage();
+```
 
-Ici je fourni seulement le code permettant d'envoyer les commandes, donc à vous de modifier celui-ci pour en faire un code complexe et utile. Vous pouvez seulement appeler le code Python de la manière suivante pour envoyer des commandes et lire les retours mais sans plus.
+Pour écrire des données brutes il suffit d'utiliser ```write.uart(commande);```
+## Python
 ```bash
 sudo python client.py commande
 ```
+
+### How to
+
+
